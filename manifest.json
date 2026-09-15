@@ -1,0 +1,58 @@
+{
+  "name": "Expense Tracker",
+  "short_name": "Expenses",
+
+  "description": "Simple personal expense tracker",
+
+  "start_url": "./index.html",
+
+  "display": "standalone",
+
+  "background_color": "#f3f4f6",
+
+  "theme_color": "#111827",
+
+  "orientation": "portrait",
+
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Add Expense",
+      "short_name": "Add Expense",
+      "description": "Quickly add a new expense",
+      "url": "./index.html?action=add",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "View Expenses",
+      "short_name": "Expenses",
+      "description": "View all your expenses",
+      "url": "./index.html?action=view",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
