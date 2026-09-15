@@ -292,7 +292,6 @@ async function syncExpenseToGoogleSheet(
         },
 
         body: JSON.stringify({
-          id: expense.id,
           date: expense.date,
           category: expense.category,
           note: expense.note,
