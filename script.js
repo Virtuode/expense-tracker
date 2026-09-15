@@ -28,6 +28,8 @@ const addExpenseSection = document.getElementById("addExpenseSection");
 
 const expensesSection = document.getElementById("expensesSection");
 
+const exportExcelBtn = document.getElementById("exportExcelBtn");
+
 // ============================================
 // Load Expenses
 // ============================================
@@ -395,6 +397,32 @@ if ("serviceWorker" in navigator) {
         console.error("Service Worker error:", error);
       });
   });
+}
+
+exportExcelBtn.addEventListener("click", exportToExcel);
+
+function exportToExcel() {
+  const expenses = JSON.parse(localStorage.getItem("expenses") || "[]");
+
+  if (expenses.length === 0) {
+    alert("No expenses available to export.");
+    return;
+  }
+
+  const excelData = expenses.map((expense) => ({
+    Date: expense.date,
+    Category: expense.category,
+    Note: expense.note || "",
+    Amount: Number(expense.amount),
+  }));
+
+  const worksheet = XLSX.utils.json_to_sheet(excelData);
+
+  const workbook = XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Expenses");
+
+  XLSX.writeFile(workbook, "Expense_Tracker.xlsx");
 }
 
 // ============================================
