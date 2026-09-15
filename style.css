@@ -6,23 +6,18 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-
   background: #f3f4f6;
-
   color: #111827;
-
   min-height: 100vh;
 }
 
 .app {
   width: 100%;
-
   max-width: 650px;
-
   margin: auto;
-
   padding: 16px;
 }
+
 
 /* =========================
    Header
@@ -30,43 +25,56 @@ body {
 
 .app-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   margin-bottom: 20px;
 }
 
 .app-header h1 {
   font-size: 24px;
-
   margin-bottom: 5px;
 }
 
 .app-header p {
   color: #6b7280;
-
   font-size: 13px;
 }
 
+
 /* =========================
-   Install Button
+   Install
 ========================= */
 
 .install-btn {
   border: none;
-
   background: #111827;
-
   color: white;
-
   padding: 9px 13px;
-
   border-radius: 8px;
-
   cursor: pointer;
 }
+
+
+/* =========================
+   Export
+========================= */
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.btn-success {
+  background: #16a34a;
+  color: white;
+}
+
 
 /* =========================
    Summary
@@ -74,31 +82,22 @@ body {
 
 .summary {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 12px;
-
   margin-bottom: 16px;
 }
 
 .summary-card {
   background: white;
-
   padding: 18px;
-
   border-radius: 12px;
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .summary-card span {
   display: block;
-
   color: #6b7280;
-
   font-size: 12px;
-
   margin-bottom: 8px;
 }
 
@@ -106,27 +105,176 @@ body {
   font-size: 22px;
 }
 
+
 /* =========================
    Cards
 ========================= */
 
 .card {
   background: white;
-
   padding: 18px;
-
   border-radius: 12px;
-
   margin-bottom: 16px;
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .card h2 {
   font-size: 18px;
-
   margin-bottom: 18px;
 }
+
+
+/* =========================
+   Category Summary
+========================= */
+
+.category-summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 14px 4px;
+
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.category-card:last-child {
+  border-bottom: none;
+}
+
+.category-card:active {
+  transform: scale(0.99);
+}
+
+.category-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-icon {
+  font-size: 21px;
+}
+
+.category-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.category-count {
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.category-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-total {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.category-arrow {
+  color: #9ca3af;
+  font-size: 18px;
+}
+
+
+/* =========================
+   Category Details
+========================= */
+
+.back-btn {
+  border: none;
+  background: transparent;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close-btn {
+  border: none;
+  background: #f3f4f6;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.category-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+.category-details-header h2 {
+  margin-bottom: 0;
+}
+
+.category-details-header strong {
+  font-size: 18px;
+}
+
+.category-details-list {
+  margin-top: 10px;
+}
+
+.category-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.category-detail-item:last-child {
+  border-bottom: none;
+}
+
+.category-detail-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category-detail-note {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.category-detail-date {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.category-detail-amount {
+  font-weight: 700;
+  font-size: 14px;
+}
+
 
 /* =========================
    Form
@@ -138,28 +286,19 @@ body {
 
 .form-group label {
   display: block;
-
   font-size: 13px;
-
   font-weight: 600;
-
   margin-bottom: 6px;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-
   padding: 13px;
-
   border: 1px solid #d1d5db;
-
   border-radius: 8px;
-
   font-size: 15px;
-
   background: white;
-
   outline: none;
 }
 
@@ -168,27 +307,20 @@ body {
   border-color: #111827;
 }
 
+
 /* =========================
    Add Button
 ========================= */
 
 .add-btn {
   width: 100%;
-
   padding: 14px;
-
   border: none;
-
   border-radius: 8px;
-
   background: #111827;
-
   color: white;
-
   font-size: 15px;
-
   font-weight: 600;
-
   cursor: pointer;
 }
 
@@ -196,15 +328,26 @@ body {
   transform: scale(0.98);
 }
 
+
 /* =========================
-   Expense Header
+   Sync Status
+========================= */
+
+.sync-status {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  min-height: 16px;
+}
+
+
+/* =========================
+   Section Header
 ========================= */
 
 .section-header {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 }
 
@@ -214,15 +357,12 @@ body {
 
 .clear-btn {
   border: none;
-
   background: transparent;
-
   color: #dc2626;
-
   font-size: 13px;
-
   cursor: pointer;
 }
+
 
 /* =========================
    Expense List
@@ -234,9 +374,7 @@ body {
 
 .expense-item {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
 
   padding: 13px 0;
@@ -250,77 +388,61 @@ body {
 
 .expense-left {
   display: flex;
-
   flex-direction: column;
-
   gap: 4px;
 }
 
 .expense-category {
   font-weight: 600;
-
   font-size: 15px;
 }
 
 .expense-note {
   color: #6b7280;
-
   font-size: 13px;
 }
 
 .expense-date {
   color: #9ca3af;
-
   font-size: 12px;
 }
 
 .expense-right {
   display: flex;
-
   align-items: center;
-
   gap: 9px;
 }
 
 .expense-amount {
   font-weight: 700;
-
   font-size: 14px;
 }
 
 .delete-btn {
   border: none;
-
   background: #fee2e2;
-
   color: #dc2626;
-
   width: 30px;
-
   height: 30px;
-
   border-radius: 7px;
-
   font-size: 18px;
-
   cursor: pointer;
 }
 
 .empty-message {
   text-align: center;
-
   color: #9ca3af;
-
   padding: 25px 0;
-
   font-size: 14px;
 }
+
 
 /* =========================
    Mobile
 ========================= */
 
 @media (max-width: 500px) {
+
   .app {
     padding: 14px;
   }
@@ -332,4 +454,5 @@ body {
   .summary-card strong {
     font-size: 19px;
   }
+
 }
