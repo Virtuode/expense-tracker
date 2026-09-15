@@ -3,11 +3,17 @@
   <head>
     <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
     <meta name="theme-color" content="#111827" />
 
-    <meta name="description" content="Simple personal expense tracker" />
+    <meta
+      name="description"
+      content="Simple personal expense tracker"
+    />
 
     <link rel="manifest" href="manifest.json" />
 
@@ -18,54 +24,115 @@
 
   <body>
     <div class="app">
-      <!-- ============================= -->
-      <!-- Header -->
-      <!-- ============================= -->
 
+      <!-- Header -->
       <header class="app-header">
         <div>
           <h1>💰 Expense Tracker</h1>
-
           <p>Track your daily spending</p>
         </div>
 
-        <button id="installBtn" class="install-btn" hidden>Install</button>
+        <button id="installBtn" class="install-btn" hidden>
+          Install
+        </button>
       </header>
 
+
+      <!-- Export -->
       <button id="exportExcelBtn" class="btn btn-success">
         📥 Export to Excel
       </button>
 
-      <!-- ============================= -->
+
       <!-- Summary -->
-      <!-- ============================= -->
-
       <section class="summary">
-        <div class="summary-card">
-          <span> Today's Expense </span>
 
-          <strong id="todayTotal"> ₹0 </strong>
+        <div class="summary-card">
+          <span>Today's Expense</span>
+          <strong id="todayTotal">₹0</strong>
         </div>
 
         <div class="summary-card">
-          <span> This Month </span>
-
-          <strong id="monthTotal"> ₹0 </strong>
+          <span>This Month</span>
+          <strong id="monthTotal">₹0</strong>
         </div>
+
       </section>
 
-      <!-- ============================= -->
-      <!-- Add Expense -->
-      <!-- ============================= -->
 
-      <section id="addExpenseSection" class="card">
+      <!-- Category Summary -->
+      <section class="card">
+
+        <div class="section-header">
+          <h2>Category Summary</h2>
+        </div>
+
+        <div id="categorySummary" class="category-summary"></div>
+
+      </section>
+
+
+      <!-- Category Details -->
+      <section
+        id="categoryDetailsSection"
+        class="card"
+        hidden
+      >
+
+        <div class="section-header">
+
+          <button
+            id="backToCategoriesBtn"
+            class="back-btn"
+          >
+            ← Back
+          </button>
+
+          <button
+            id="closeCategoryDetailsBtn"
+            class="close-btn"
+          >
+            ×
+          </button>
+
+        </div>
+
+        <div class="category-details-header">
+
+          <h2 id="categoryDetailsTitle">
+            Category
+          </h2>
+
+          <strong id="categoryDetailsTotal">
+            ₹0
+          </strong>
+
+        </div>
+
+        <div
+          id="categoryDetailsList"
+          class="category-details-list"
+        ></div>
+
+      </section>
+
+
+      <!-- Add Expense -->
+      <section
+        id="addExpenseSection"
+        class="card"
+      >
+
         <h2>Add Expense</h2>
 
         <form id="expenseForm">
-          <!-- Amount -->
 
+          <!-- Amount -->
           <div class="form-group">
-            <label for="amount"> Amount </label>
+
+            <label for="amount">
+              Amount
+            </label>
 
             <input
               type="number"
@@ -76,70 +143,140 @@
               inputmode="decimal"
               required
             />
+
           </div>
+
 
           <!-- Category -->
-
           <div class="form-group">
-            <label for="category"> Category </label>
+
+            <label for="category">
+              Category
+            </label>
 
             <select id="category" required>
-              <option value="">Select category</option>
 
-              <option value="Food">🍔 Food</option>
+              <option value="">
+                Select category
+              </option>
 
-              <option value="Travel">🚕 Travel</option>
+              <option value="Food">
+                🍔 Food
+              </option>
 
-              <option value="Shopping">🛍️ Shopping</option>
+              <option value="Travel">
+                🚕 Travel
+              </option>
 
-              <option value="Bills">📄 Bills</option>
+              <option value="Shopping">
+                🛍️ Shopping
+              </option>
 
-              <option value="Entertainment">🎬 Entertainment</option>
+              <option value="Bills">
+                📄 Bills
+              </option>
 
-              <option value="Health">💊 Health</option>
+              <option value="Entertainment">
+                🎬 Entertainment
+              </option>
 
-              <option value="Other">📦 Other</option>
+              <option value="Health">
+                💊 Health
+              </option>
+
+              <option value="Other">
+                📦 Other
+              </option>
+
             </select>
+
           </div>
+
 
           <!-- Note -->
-
           <div class="form-group">
-            <label for="note"> Note </label>
 
-            <input type="text" id="note" placeholder="Example: Lunch" />
+            <label for="note">
+              Note
+            </label>
+
+            <input
+              type="text"
+              id="note"
+              placeholder="Example: Lunch"
+            />
+
           </div>
+
 
           <!-- Date -->
-
           <div class="form-group">
-            <label for="date"> Date </label>
 
-            <input type="date" id="date" required />
+            <label for="date">
+              Date
+            </label>
+
+            <input
+              type="date"
+              id="date"
+              required
+            />
+
           </div>
 
-          <!-- Submit -->
 
-          <button type="submit" class="add-btn">+ Add Expense</button>
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="add-btn"
+          >
+            + Add Expense
+          </button>
+
+          <div
+            id="syncStatus"
+            class="sync-status"
+          ></div>
+
         </form>
+
       </section>
 
-      <!-- ============================= -->
-      <!-- Expense List -->
-      <!-- ============================= -->
 
-      <section id="expensesSection" class="card">
+      <!-- Expense List -->
+      <section
+        id="expensesSection"
+        class="card"
+      >
+
         <div class="section-header">
+
           <h2>Expenses</h2>
 
-          <button id="clearAllBtn" class="clear-btn">Clear All</button>
+          <button
+            id="clearAllBtn"
+            class="clear-btn"
+          >
+            Clear All
+          </button>
+
         </div>
 
-        <div id="expenseList" class="expense-list"></div>
+        <div
+          id="expenseList"
+          class="expense-list"
+        ></div>
+
       </section>
+
     </div>
+
+
+    <!-- Excel library -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
+    <!-- Application -->
     <script src="script.js"></script>
+
   </body>
 </html>
